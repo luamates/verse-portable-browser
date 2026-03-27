@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verse</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="titlebar">
+      <div class="traffic-lights no-drag">
+        <button id="closeWindow" class="traffic close" aria-label="Close"></button>
+        <button id="minimizeWindow" class="traffic minimize" aria-label="Minimize"></button>
+        <button id="maximizeWindow" class="traffic maximize" aria-label="Maximize"></button>
+      </div>
+
+      <div class="brand">
+        <div class="logo-wrap">
+          <svg class="logo" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="64" cy="64" r="52" stroke="url(#gA)" stroke-width="8"/><path d="M38 39L61 89C62.5 92.2 67.2 92.3 68.8 89.2L90 39" stroke="url(#gA)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="gA" x1="24" y1="24" x2="104" y2="104" gradientUnits="userSpaceOnUse"><stop stop-color="#E9D5FF"/><stop offset="0.48" stop-color="#A855F7"/><stop offset="1" stop-color="#7C3AED"/></linearGradient></defs></svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Verse</span>
+          <span class="brand-tag">minimal browser</span>
+        </div>
+      </div>
+
+      <div class="action-cluster no-drag">
+        <div class="session-cluster">
+          <button id="sessionBtn" class="session-btn">Session</button>
+          <div id="sessionMenu" class="menu-panel hidden">
+            <button class="session-option" data-home="true">Verse home</button>
+            <div class="session-divider"></div>
+            <button class="session-option" data-engine="google">Google Session</button>
+            <button class="session-option" data-engine="bing">Microsoft Bing Session</button>
+            <button class="session-option" data-engine="duckduckgo">DuckDuckGo Session</button>
+          </div>
+        </div>
+        <div class="favorites-cluster">
+          <button id="favoritesBtn" class="session-btn">Favorites</button>
+          <div id="favoritesMenu" class="menu-panel hidden favorites-menu">
+            <div class="favorites-menu-head">
+              <span>Favorites</span>
+              <button id="addFavoriteBtn" class="favorite-action">Add current</button>
+            </div>
+            <div id="favorites" class="favorites-menu-list"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="tabsSection" class="tabs-strip no-drag">
+      <div id="tabs" class="tabs"></div>
+      <button id="newTab" class="tab-add" title="New tab">+</button>
+    </section>
+
+    <section id="toolbarSection" class="toolbar no-drag">
+      <div class="nav-cluster">
+        <button id="backBtn" class="tool-btn" title="Back">←</button>
+        <button id="forwardBtn" class="tool-btn" title="Forward">→</button>
+        <button id="reloadBtn" class="tool-btn" title="Reload">↻</button>
+      </div>
+
+      <form id="addressForm" class="address-form">
+        <input id="addressInput" class="address-input" type="text" placeholder="Search or enter a website" autocomplete="off" spellcheck="false" />
+      </form>
+
+      <div class="zoom-cluster">
+        <button id="zoomOutBtn" class="tool-btn" title="Zoom out">−</button>
+        <button id="zoomResetBtn" class="zoom-readout" title="Reset zoom">100%</button>
+        <button id="zoomInBtn" class="tool-btn" title="Zoom in">+</button>
+      </div>
+    </section>
+
+
+    <main id="contentArea" class="content-area">
+      <section id="homeScreen" class="home-screen" aria-label="Verse home"></section>
+    </main>
+  </div>
+
+  <div id="sessionOverlay" class="session-overlay hidden">
+    <div class="overlay-card">
+      <div class="overlay-mark">
+        <svg class="logo" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="64" cy="64" r="52" stroke="url(#gC)" stroke-width="8"/><path d="M38 39L61 89C62.5 92.2 67.2 92.3 68.8 89.2L90 39" stroke="url(#gC)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="gC" x1="24" y1="24" x2="104" y2="104" gradientUnits="userSpaceOnUse"><stop stop-color="#E9D5FF"/><stop offset="0.48" stop-color="#A855F7"/><stop offset="1" stop-color="#7C3AED"/></linearGradient></defs></svg>
+      </div>
+      <div class="overlay-word">Verse</div>
+      <div id="overlaySessionText" class="overlay-session-text">Initializing session</div>
+      <div class="overlay-loader"><span></span></div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

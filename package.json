@@ -1,0 +1,49 @@
+{
+  "name": "verse-browser",
+  "productName": "Verse",
+  "version": "1.0.0",
+  "description": "Minimal privacy-first dark browser shell for Windows built with Electron by VerseCode.",
+  "main": "main.js",
+  "author": "VerseCode",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist-win": "electron-builder --win portable",
+    "pack-win": "electron-builder --win dir"
+  },
+  "build": {
+    "appId": "com.verse.browser",
+    "productName": "Verse",
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "renderer.js",
+      "styles.css",
+      "assets/**/*",
+      "package.json",
+      "splash.html",
+      "splash-preload.js"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "asar": true,
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "portable": {
+      "artifactName": "Verse-${version}-Windows-Portable.${ext}"
+    }
+  },
+  "devDependencies": {
+    "electron": "^37.2.0",
+    "electron-builder": "^26.0.12"
+  }
+}
